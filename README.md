@@ -51,5 +51,5 @@ HKAIVERSE-ASSESSMENT/
 ## Submission metadata
 
 - **Release:** https://github.com/dthumm05/hkaiverse-assessment/releases/tag/v1.0
-- **Full commit URL:** https://github.com/dthumm05/hkaiverse-assessment/commit/d833bded0ee6d3c3b676918aaa3d6428ca7edf7c
+- **Full commit URL:** https://github.com/dthumm05/hkaiverse-assessment/commit/ba1881ded9ad245e5cd01623599bbe5eb452d2bb
 - **Repository URL**: https://github.com/dthumm05/hkaiverse-assessment
