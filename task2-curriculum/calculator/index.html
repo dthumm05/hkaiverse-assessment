@@ -1,0 +1,226 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Time-Saving Scenario Calculator</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 760px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      line-height: 1.6;
+      color: #222;
+    }
+
+    h1 {
+      line-height: 1.25;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+
+    input {
+      display: block;
+      width: 100%;
+      max-width: 24rem;
+      padding: 0.65rem;
+      margin-top: 0.35rem;
+      border: 1px solid #888;
+      border-radius: 0.35rem;
+      font: inherit;
+    }
+
+    input:focus,
+    button:focus-visible {
+      outline: 2px solid #2457c5;
+      outline-offset: 2px;
+    }
+
+    button {
+      margin-top: 1.25rem;
+      padding: 0.7rem 1rem;
+      border: 0;
+      border-radius: 0.35rem;
+      background: #2457c5;
+      color: white;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #19449e;
+    }
+
+    output {
+      display: block;
+      margin-top: 1.25rem;
+      padding: 1rem;
+      border: 1px solid #888;
+      border-radius: 0.5rem;
+      overflow-wrap: anywhere;
+    }
+
+    .formula,
+    .note {
+      color: #555;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        margin-top: 1rem;
+      }
+
+      input {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1>Time-Saving Scenario Calculator</h1>
+
+    <p>
+      Enter your assumptions to estimate the net monthly time saved
+      by reducing follow-ups. This is a scenario estimate, not measured evidence.
+    </p>
+
+    <form id="calc">
+      <label for="count">Follow-ups per month</label>
+      <input
+        id="count"
+        type="number"
+        min="0"
+        step="1"
+        value="10"
+        required
+      >
+
+      <label for="minutes">Minutes spent per follow-up</label>
+      <input
+        id="minutes"
+        type="number"
+        min="0"
+        step="any"
+        value="10"
+        required
+      >
+
+      <label for="reduction">Expected reduction in follow-ups (%)</label>
+      <input
+        id="reduction"
+        type="number"
+        min="0"
+        max="100"
+        step="any"
+        value="50"
+        required
+      >
+
+      <label for="support">
+        Dashboard support time (minutes per month)
+      </label>
+      <input
+        id="support"
+        type="number"
+        min="0"
+        step="any"
+        value="60"
+        required
+      >
+
+      <button type="submit">Calculate</button>
+    </form>
+
+    <output id="result" aria-live="polite" aria-atomic="true">
+      <strong>Example using the default assumptions</strong>
+      <p>Gross time saved: 50 minutes/month.</p>
+      <p>Net result: 10 minutes/month of additional time spent.</p>
+    </output>
+
+    <p class="formula">
+      <strong>Formula:</strong><br>
+      Gross time saved = Follow-ups × Minutes per follow-up ×
+      (Reduction percentage ÷ 100)<br>
+      Net time saved = Gross time saved − Dashboard support time
+    </p>
+
+    <p class="note">
+      This estimate excludes initial development time and other costs or
+      benefits. Replace the assumptions with measured values before using
+      the result to make a real decision.
+    </p>
+  </main>
+
+  <script>
+    const form = document.getElementById('calc');
+    const result = document.getElementById('result');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      if (!form.reportValidity()) {
+        return;
+      }
+
+      const count = Number(document.getElementById('count').value);
+      const minutes = Number(document.getElementById('minutes').value);
+      const reduction = Number(document.getElementById('reduction').value);
+      const support = Number(document.getElementById('support').value);
+
+      const values = [count, minutes, reduction, support];
+
+      if (
+        !values.every(Number.isFinite) ||
+        !values.every(value => value >= 0) ||
+        count % 1 !== 0 ||
+        reduction > 100
+      ) {
+        result.textContent =
+          'Please enter valid values. Follow-ups must be a whole number, ' +
+          'and the reduction percentage must be between 0 and 100.';
+        return;
+      }
+
+      const gross = count * minutes * (reduction / 100);
+      const net = gross - support;
+
+      const heading = document.createElement('strong');
+      heading.textContent = 'Calculation result';
+
+      const grossLine = document.createElement('p');
+      grossLine.textContent =
+        `Gross time saved: ${gross.toFixed(1)} minutes/month.`;
+
+      const netLine = document.createElement('p');
+
+      if (net > 0) {
+        netLine.textContent =
+          `Net time saved after support: ${net.toFixed(1)} minutes/month.`;
+      } else if (net < 0) {
+        netLine.textContent =
+          `Net additional time spent after support: ${Math.abs(net).toFixed(1)} minutes/month.`;
+      } else {
+        netLine.textContent =
+          'Net time saved after support: 0.0 minutes/month (break-even).';
+      }
+
+      result.replaceChildren(heading, grossLine, netLine);
+    });
+  </script>
+</body>
+</html>
