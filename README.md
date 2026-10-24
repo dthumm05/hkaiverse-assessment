@@ -20,7 +20,6 @@ The evidence in Task 1 is intentionally modest and is based primarily on my pers
 - The number and representativeness of students who shared feedback are not independently verified.
 - Time-saving scenarios are illustrative and should not be treated as measured results.
 - No live SIS, Google Drive, AWS Academy, or Springboard integration is claimed.
-- Current public programme pages may not match the exact 2023–2027 batch curriculum; verify the batch-specific credit total and prerequisites before finalising the credit map.
 - The available public programme pages may not match the exact 2023–2027 batch curriculum. The curriculum reference, total graduation-credit requirement, course-code/title associations, and ambiguous semester details still require verification against official batch records.
 - `credit-map.csv` contains 136 recorded credits across Semesters I–VI and ST-II. This is a partial transcript total, not the complete degree-credit requirement. Zero-credit courses are retained but excluded from the credit-bearing total. Job-description evidence is documented separately in `job-descriptions.md` and does not prove actual syllabus coverage.
 
@@ -52,7 +51,5 @@ HKAIVERSE-ASSESSMENT/
 ## Submission metadata
 
 - **Release:** Create a GitHub release after the repository content is final, then replace this line with the actual release URL.
-- **Full commit URL:** Replace this line with the actual URL of the final commit.
-- **Repository URL:** Add the actual public or evaluator-accessible GitHub repository URL after publishing.
-
-These links are deliberately left as placeholders until the repository is created and the release/commit exist. Do not submit the placeholders.
+- **Full commit URL:** https://github.com/dthumm05/hkaiverse-assessment/commit/a400f14
+- **Repository URL**: https://github.com/dthumm05/hkaiverse-assessment
