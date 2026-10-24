@@ -50,6 +50,6 @@ HKAIVERSE-ASSESSMENT/
 
 ## Submission metadata
 
-- **Release:** Create a GitHub release after the repository content is final, then replace this line with the actual release URL.
-- **Full commit URL:** https://github.com/dthumm05/hkaiverse-assessment/commit/a400f14
+- **Release:** https://github.com/dthumm05/hkaiverse-assessment/releases/tag/v1.0
+- **Full commit URL:** https://github.com/dthumm05/hkaiverse-assessment/commit/a400f14 
 - **Repository URL**: https://github.com/dthumm05/hkaiverse-assessment
