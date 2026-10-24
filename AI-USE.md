@@ -6,7 +6,7 @@ AI assistance was used to organise the assessment deliverables, improve clarity,
 
 ## Sources checked for Task 2
 
-The official ICFAI Tech B.Tech, B.Sc, BCA, and academic-features pages were checked on 22 October 2026 as reference sources. Their applicability to the 2023–2027 batch and the exact curriculum and credit requirements still require confirmation. Two Amazon careers pages were also checked on that date. Source URLs, observed requirements, and relevant caveats are recorded in `task2-curriculum/job-descriptions.md` and `task2-curriculum/ai-exercises.md`.
+The employer job-description sample used in Task 2 consists of postings from Amazon, Cisco, and Wipro. The source URLs, observed requirements, and eligibility caveats are recorded in `task2-curriculum/job-descriptions.md`. Public programme sources and their limitations are discussed in `task2-curriculum/report.md`. AI-assisted exercises and their verification status are documented in `task2-curriculum/ai-exercises.md`.
 
 ## What remains my responsibility
 
